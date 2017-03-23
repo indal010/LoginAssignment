@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>login page </title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="login.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script src="login.js"></script>
+  </head>
+  <body>
+
+    <form>
+    <div class="container">
+      <div class="row">
+        <div class="well" align="center">
+        <h1 id="tag"><strong>welcome to single page Application</strong></h1>
+        </div>
+      </div>
+      <div class="row">
+       </div>
+      <div class="col-xs-2"></div>
+        <div class="col-xs-8">
+          <div class="well">
+            <div align="center" class="my-text"><b>username:</b><i class="glyphicon glyphicon-user"></i><input type="text" id="username" placeholder="username" required></div><br>
+            <div align="center" class="my-text"><b>password:</b><i class="glyphicon glyphicon-lock"></i><input type="password" placeholder="password" id="pwd" required></div><br>
+            <div align="center" class="my-text"><button type="button" class="btn btn-success" id="sign"><b>login</b></button>
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal"><b>signup</b></button>
+             <div class="modal fade" id="myModal" role="dialog">
+               <div class="modal-dialog">
+
+                 <div class="modal-content">
+                       <div id="setimg">
+                   <div class="modal-header" style="background-color:skyblue">
+                     <button type="button" class="close" data-dismiss="modal" style="color:red">&times</button>
+                     <h2 class="modal-title"><b style="color:peru">welcome to my registration page</b></h2>
+                   </div>
+                   <div class="modal-body">
+                     <form>
+                    username       :<input type="text" placeholder="enter username" id="mdl1"><br><br>
+                        password   :<input type="password" placeholder="enter password" id="mdl2"><br><br>
+                        password :<input type="password" placeholder="retype password" id="mdl3"><br><br>
+                        <button type="button" class="btn btn-warning" id="submit"> submit</button>
+                        <button type="reset" class="btn btn-info">reset</button>
+                      </form>
+                   </div>
+                   <div class="modal-footer">
+                     <button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
+                   </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+          </div>
+        </div>
+     </div>
+   </div>
+ </div>
+ </form>
+  </body>
+</html>
