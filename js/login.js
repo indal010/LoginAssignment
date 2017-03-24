@@ -34,11 +34,11 @@ $(document).ready(function(){
               if(getobj[i].userid==userName&&getobj[i].pass==pwd)
                  {
                     a=0;
-                   $("body").load("success.html");
+                   $("body").load("template/success.html");
                   }
                 }
                 if(a!=0)
-                  $("body").load("fail.html");
+                  $("body").load("template/fail.html");
 
           }
     }
@@ -67,9 +67,15 @@ $(document).ready(function(){
         }
         if(validation)
         {
-        alert("entered user name already exists");
+        alert("entered user name already exists!!!! please select other user name");
         }
-       else if(p1==p2&&u1!="")
+        else if(u1=="")
+        {
+          alert("user name cannot be empty");
+        }
+         else if(p1==""||p2=="")
+          alert("password field cannot be empty");
+         else if(p1==p2)
          {
               var str='{"userid":\"'+u1+'\","pass":\"'+p1+'\"}';
                   str=JSON.parse(str);
@@ -84,10 +90,10 @@ $(document).ready(function(){
                   var str1=JSON.stringify(myarr);
                   createCookie("mycookie",str1);
       }
-   else
-   {
-     alert("your passwords or username are violating the rule");
-    }
+       else
+        {
+         alert("your passwords are not matching, please enter same password!!");
+        }
  });
 });
 
