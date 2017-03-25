@@ -47,7 +47,7 @@ $(document).ready(function(){
                                dataType:'html',
                                success: function(data,textStatus,jqXHR)
                                {
-                                 console.log(data);
+                                // console.log(data);
                                  //$("#contact-page").html(data);
                                  //document.getElementById('#c').innerHTML=html(data);
                                  $("#c").html(data);
@@ -59,7 +59,7 @@ $(document).ready(function(){
                               }
                             }
                     if(a!=0)
-                    document.getElementById("abcdef").click();
+                    document.getElementById("about_id").click();
                   }
     });
 
