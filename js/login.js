@@ -1,12 +1,17 @@
 var myarr=[];
 $(document).ready(function(){
   $("#tag").css("color","dodgerblue");
+  $("#mdl1").focus(function()
+  {
+  //  $(this).css("border","0px dimgray black");
+     $(this).css("border","1px solid lightgray");
+   });
   $("#username").focus(function(){
    $(this).css("background-color","lightblue");
    });
    $("#username").blur(function()
  {
-   $(this).css("background-color","thistle");
+   $(this).css("background-color","darkslategray");
  })
  $("#pwd").focus(function()
  {
@@ -14,7 +19,7 @@ $(document).ready(function(){
   });
   $("#pwd").blur(function()
 {
-  $(this).css("background-color","thistle");
+  $(this).css("background-color","darkslategray");
 })
 
 
@@ -24,25 +29,39 @@ $(document).ready(function(){
      var x=getCookie("mycookie");
        if(x=="")
        {
-         $("body").load("fail.html");
+        document.getElementById("abcdef").click();
        }
        else {
-               var a=2;
-            var getobj=JSON.parse(x);
-            for(i=0;i<getobj.length;i++)
-            {
-              if(getobj[i].userid==userName&&getobj[i].pass==pwd)
-                 {
-                    a=0;
-                   $("body").load("template/success.html");
-                  }
-                }
-                if(a!=0)
-                  $("body").load("template/fail.html");
+                       var a=2;
+                       var getobj=JSON.parse(x);
+                       for(i=0;i<getobj.length;i++)
+                          {
+                           if(getobj[i].userid==userName&&getobj[i].pass==pwd)
+                             {
+                               a=0;
+                               $.ajax(
+                                {
+                               url:"../Login/template/success.html",
+                               async:false,
+                               type:"GET",
+                               dataType:'html',
+                               success: function(data,textStatus,jqXHR)
+                               {
+                                 console.log(data);
+                                 //$("#contact-page").html(data);
+                                 //document.getElementById('#c').innerHTML=html(data);
+                                 $("#c").html(data);
+                               }
+                                 });
 
-          }
-    }
-  );
+                              document.getElementById("con").click();
+                               break;
+                              }
+                            }
+                    if(a!=0)
+                    document.getElementById("abcdef").click();
+                  }
+    });
 
 
   $("#submit").click(function()
@@ -71,7 +90,7 @@ $(document).ready(function(){
         }
         else if(u1=="")
         {
-          alert("user name cannot be empty");
+          $("#mdl1").css("border","2px solid red");
         }
          else if(p1==""||p2=="")
           alert("password field cannot be empty");
@@ -88,7 +107,7 @@ $(document).ready(function(){
                          myarr[myarr.length]=str;
                  }
                   var str1=JSON.stringify(myarr);
-                  createCookie("mycookie",str1);
+                  createCookie1("mycookie",str1);
       }
        else
         {
@@ -99,7 +118,7 @@ $(document).ready(function(){
 
 
 
-function createCookie(key,value)
+function createCookie1(key,value)
 {
   var expires;
   var days=1;
@@ -112,9 +131,10 @@ function createCookie(key,value)
 
 function getCookie(kname)
 {
-   if(document.cookie.length>0)
+  var cookie=document.cookie;
+   if(cookie.length>0)
   {
-     start=document.cookie.indexOf(kname+"=");
+     start=cookie.indexOf(kname+"=");
        if(start!=-1)
        {
          start=start+kname.length+1;
